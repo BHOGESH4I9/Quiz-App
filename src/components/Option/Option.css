@@ -1,0 +1,83 @@
+.option {
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 1rem;
+  margin: 0.9rem 0;
+  text-align: left;
+  outline: none;
+  background: #F6F5F2;         /* light cream background for better visibility */
+  border: 1px solid #C9A47D;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 
+    background-color 0.3s ease, 
+    color 0.3s ease, 
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  user-select: none;          /* prevent text selection on click */
+}
+
+/* Hover effect for better UX */
+.option:hover {
+  background-color: #C9A47D; /* warm beige tint */
+  border-color: #3C3C3C;     /* dark gray border on hover */
+  box-shadow: 0 0 8px rgba(60, 60, 60, 0.3);
+  color: #3C3C3C;            /* dark gray text on hover */
+}
+
+/* Keep correct/incorrect styles ONLY for when showAnswer is true */
+.incorrect {
+  background-color: #F6F5F2;
+  color: #d32f3f;
+  border-color: #d32f3f;
+  animation: shakeIncorrect 0.4s ease;
+}
+
+.correct {
+  background-color: #F6F5F2;
+  color: rgb(44, 179, 44);
+  border-color: rgb(44, 179, 44);
+  animation: popCorrect 0.4s ease;
+}
+
+/* Remove disabled styles since no disabling */
+.option:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Animation for correct answer */
+@keyframes popCorrect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.selected {
+  background-color: #C9A47D;  /* warm beige background */
+  border-color: #3C3C3C;      /* dark gray border */
+  color: #3C3C3C;             /* dark gray text */
+  cursor: default;
+}
+
+.option.selected {
+  background-color: #C9A47D;
+  border-color: #3C3C3C;
+  color: #3C3C3C;
+  font-weight: 600;
+}
+
+/* Animation for incorrect answer */
+@keyframes shakeIncorrect {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
